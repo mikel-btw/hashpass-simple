@@ -76,7 +76,7 @@ No requiere instalación de nada. Al ser puro HTML/CSS/JS puede alojarse en GitH
 
 ---
 
-## Seguridad — lo que HashPass hace y lo que no hace
+## Seguridad — lo que HashPass Simple hace y lo que no hace
 
 ### Lo que hace bien
 - Usa criptografía real (PBKDF2, no un hash simple como MD5 o SHA1 directo)
