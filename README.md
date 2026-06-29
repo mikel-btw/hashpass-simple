@@ -5,7 +5,8 @@
 [![GPL License](https://img.shields.io/badge/licencia-GPL--3.0-blue.svg)](LICENSE)
 [![HTML](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)](index.html)
 [![CSS](https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white)](style.css)
-[![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black)](app.js)
+[![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white)](src/app.ts)
+[![Vite](https://img.shields.io/badge/Vite-646CFF?logo=vite&logoColor=white)](vite.config.ts)
 
 ---
 
@@ -52,24 +53,27 @@ Todo esto ocurre dentro del contexto de seguridad del navegador. Ninguna línea 
 
 ```
 hashpass-simple/
-├── index.html   # Estructura y marcado semántico
-├── style.css    # Tokens de tema, layout, componentes
-├── app.js       # Lógica: tema, crypto, scramble, reveal
+├── index.html
+├── src/
+│   ├── app.ts       # Lógica: tema, crypto, scramble, reveal
+│   ├── variables.ts # Referencias DOM y constantes
+│   └── style.css    # Tokens de tema, layout, componentes
+├── package.json
+├── tsconfig.json
 └── README.md
 ```
 
-No hay dependencias externas, sin frameworks, sin bundler, sin `node_modules`. Abre `index.html` en el navegador y ya funciona.
+Usa TypeScript compilado con Vite. Requiere Node.js para desarrollo local.
 
 ---
 
 ## Uso local
 
 ```bash
-git clone https://github.com/miangedev/hashpass-simple.git
+git clone https://github.com/mikel-btw/hashpass-simple.git
 cd hashpass-simple
-# Abre index.html en tu navegador
-# O con cualquier servidor estático:
-npx serve .
+npm install
+npm run dev
 ```
 
 No requiere instalación de nada. Al ser puro HTML/CSS/JS puede alojarse en GitHub Pages, Netlify, Vercel o cualquier hosting estático de forma gratuita.
@@ -113,7 +117,7 @@ El diseño visual fue desarrollado mediante **vibecoding**
 | HTML5 semántico | Estructura y accesibilidad |
 | CSS custom properties | Sistema de temas dark/light |
 | Web Crypto API | PBKDF2-SHA512 nativo del navegador |
-| Vanilla JavaScript | Lógica de UI, tema, animaciones |
+| TypeScript + Vite | Lógica de UI, tema, animaciones — compilado a JS |
 | Google Fonts | DM Serif Display, DM Mono, Syne |
 | IntersectionObserver | Animaciones de scroll reveal |
 
