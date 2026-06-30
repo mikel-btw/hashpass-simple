@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HashPass — Contraseñas sin memoria</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Syne:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- NAV -->
+    <nav>
+        <div class="nav-inner">
+            <span class="mono nav-logo">HP<span class="accent-dot">.</span></span>
+            <div class="nav-links">
+                <a href="#generador" class="hover-line">Generador</a>
+                <a href="#como-funciona" class="hover-line">Cómo funciona</a>
+                <a href="#privacidad" class="hover-line">Privacidad</a>
+            </div>
+            <a href="https://github.com/miangedev/hashpass-simple" target="_blank" rel="noopener noreferrer"
+                class="github-btn" aria-label="Ver en GitHub">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                        d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.604-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836a9.59 9.59 0 0 1 2.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z" />
+                </svg>
+            </a>
+            <button class="theme-toggle" id="theme-toggle" aria-label="Cambiar tema">
+                <span class="theme-icon" id="theme-icon">☀️</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero grid-bg" id="generador">
+        <div class="float-badge float-badge--top">
+            <span class="mono badge-label">Web Crypto API</span>
+            <p class="badge-title">PBKDF2-SHA512</p>
+        </div>
+        <div class="float-badge float-badge--bottom">
+            <span class="badge-dot"></span>
+            <span class="mono badge-label">100% local</span>
+        </div>
+
+        <div class="hero-content">
+            <p class="mono eyebrow">Generador determinístico</p>
+            <h1 class="serif">Contraseñas</h1>
+            <h1 class="serif italic accent">sin memoria</h1>
+            <p class="hero-sub">
+                La misma frase maestra más el nombre del sitio siempre produce la misma contraseña. Sin bases de datos.
+                Sin servidores.
+            </p>
+        </div>
+
+        <div class="hero-divider"></div>
+    </section>
+
+    <!-- GENERATOR CARD -->
+    <section class="generator-section">
+        <div class="container">
+            <div class="gen-card reveal">
+
+                <div class="gen-grid">
+                    <!-- Left: inputs -->
+                    <div class="gen-inputs">
+
+                        <div class="field">
+                            <label for="master">Contraseña maestra</label>
+                            <div class="input-wrap">
+                                <input type="password" id="master" placeholder="Tu frase secreta personal…"
+                                    autocomplete="off" spellcheck="false">
+                                <button class="input-eye" id="eye-toggle" aria-label="Mostrar contraseña" tabindex="-1">
+                                    <svg id="eye-open" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                                        <circle cx="12" cy="12" r="3" />
+                                    </svg>
+                                    <svg id="eye-closed" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" style="display:none">
+                                        <path
+                                            d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94" />
+                                        <path
+                                            d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19" />
+                                        <line x1="1" y1="1" x2="23" y2="23" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label for="site">Sitio o dominio</label>
+                            <input type="text" id="site" placeholder="github.com" autocomplete="off" spellcheck="false"
+                                inputmode="url">
+                        </div>
+
+                        <div class="field">
+                            <label>Longitud — <span id="len-display">20</span> caracteres</label>
+                            <div class="range-row">
+                                <input type="range" id="length" min="8" max="64" value="20">
+                                <span class="mono range-val" id="len-val">20</span>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label>Incluir en la contraseña</label>
+                            <div class="chip-group">
+                                <div class="chip active" data-key="upper">
+                                    <span>Mayúsculas</span>
+                                    <span class="mono chip-sample">A–Z</span>
+                                </div>
+                                <div class="chip active" data-key="num">
+                                    <span>Números</span>
+                                    <span class="mono chip-sample">0–9</span>
+                                </div>
+                                <div class="chip active" data-key="sym">
+                                    <span>Símbolos</span>
+                                    <span class="mono chip-sample">!@#</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button class="btn-accent" id="btn-gen" disabled>Generar contraseña</button>
+
+                    </div>
+
+                    <!-- Right: output -->
+                    <div class="gen-output">
+                        <div class="output-box">
+                            <p class="mono output-label">Contraseña generada</p>
+                            <div class="password-display empty" id="pass-display">
+                                Completa los campos y pulsa generar
+                            </div>
+                            <div class="output-meta">
+                                <div class="strength-block">
+                                    <div class="strength-header">
+                                        <span class="mono strength-text">Fortaleza</span>
+                                        <span class="mono strength-name" id="strength-name">—</span>
+                                    </div>
+                                    <div class="strength-bar">
+                                        <div class="strength-fill" id="strength-fill"></div>
+                                    </div>
+                                </div>
+                                <button class="btn-copy" id="btn-copy" disabled>
+                                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <rect x="9" y="9" width="13" height="13" rx="2" />
+                                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                                    </svg>
+                                    <span id="copy-text">Copiar</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Info strip -->
+                        <div class="info-strip">
+                            <div class="info-strip-item">
+                                <span class="serif info-num accent">∞</span>
+                                <span class="info-label">Reproducible</span>
+                            </div>
+                            <div class="info-strip-sep"></div>
+                            <div class="info-strip-item">
+                                <span class="serif info-num accent">0</span>
+                                <span class="info-label">Datos enviados</span>
+                            </div>
+                            <div class="info-strip-sep"></div>
+                            <div class="info-strip-item">
+                                <span class="serif info-num accent">1</span>
+                                <span class="info-label">Frase que recordar</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="info-section bg-alt" id="como-funciona">
+        <div class="container">
+            <div class="section-header reveal">
+                <p class="mono eyebrow">Bajo el capó</p>
+                <h2 class="serif section-title">¿Cómo funciona?</h2>
+            </div>
+
+            <div class="steps">
+                <div class="step reveal">
+                    <div class="step-num mono">01</div>
+                    <div class="step-body">
+                        <h3 class="step-title">Combinas dos datos</h3>
+                        <p class="step-text">Introduces tu contraseña maestra y el nombre del sitio. Esos dos valores
+                            son todo lo que se necesita. Nunca se almacenan en ningún lado.</p>
+                    </div>
+                </div>
+                <div class="step-connector"></div>
+                <div class="step reveal">
+                    <div class="step-num mono">02</div>
+                    <div class="step-body">
+                        <h3 class="step-title">PBKDF2-SHA512 hace el trabajo</h3>
+                        <p class="step-text">Tu navegador ejecuta 100.000 iteraciones del algoritmo de derivación de
+                            claves PBKDF2 con hash SHA-512. Es matemáticamente costoso de revertir o de atacar por
+                            fuerza bruta.</p>
+                    </div>
+                </div>
+                <div class="step-connector"></div>
+                <div class="step reveal">
+                    <div class="step-num mono">03</div>
+                    <div class="step-body">
+                        <h3 class="step-title">Resultado determinístico</h3>
+                        <p class="step-text">Los mismos dos datos de entrada producen siempre los mismos bytes de
+                            salida, en cualquier dispositivo y momento. La contraseña se codifica con el conjunto de
+                            caracteres que elijas.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="callout reveal">
+                <span class="serif callout-mark">"</span>
+                <p>Para recuperar cualquier contraseña solo necesitas recordar tu contraseña maestra. Nada más.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRIVACY -->
+    <section class="info-section" id="privacidad">
+        <div class="container">
+            <div class="section-header reveal">
+                <p class="mono eyebrow">Garantías técnicas</p>
+                <h2 class="serif section-title">Privacidad y<br><span class="serif italic accent">Seguridad</span></h2>
+            </div>
+
+            <div class="privacy-grid">
+                <div class="privacy-card reveal">
+                    <span class="privacy-icon"></span>
+                    <h3 class="privacy-title">Sin almacenamiento</h3>
+                    <p class="privacy-text">Ninguna contraseña se guarda en disco, cookies, localStorage ni ningún otro
+                        mecanismo de persistencia.</p>
+                </div>
+                <div class="privacy-card reveal">
+                    <span class="privacy-icon"></span>
+                    <h3 class="privacy-title">Solo local</h3>
+                    <p class="privacy-text">Todo el cómputo ocurre dentro de tu navegador usando la Web Crypto API
+                        nativa. No existe backend.</p>
+                </div>
+                <div class="privacy-card reveal">
+                    <span class="privacy-icon"></span>
+                    <h3 class="privacy-title">Sin red</h3>
+                    <p class="privacy-text">Ningún dato tuyo se transmite a ningún servidor, API externa ni tercero de
+                        ningún tipo.</p>
+                </div>
+                <div class="privacy-card reveal">
+                    <span class="privacy-icon"></span>
+                    <h3 class="privacy-title">Código auditable</h3>
+                    <p class="privacy-text">El código fuente es completamente legible desde el navegador. No hay
+                        minificación ofuscada ni lógica oculta.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-inner container">
+            <div>
+                <p class="footer-name">Desarrollado por <strong>Mikel</strong></p>
+                <p class="mono footer-sub">Proyecto educativo · Seguridad informática · Desarrollo web</p>
+            </div>
+            <span class="mono footer-right">HashPass<span class="accent-dot">.</span></span>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
