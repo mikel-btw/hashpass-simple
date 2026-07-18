@@ -20,7 +20,7 @@ La idea central: en lugar de recordar 50 contraseñas distintas o depender de un
 
 ## Características
 
-- **Determinístico** — mismos inputs, mismo output, siempre
+- **Determinístico** — mismos inputs, mismo output siempre
 - **PBKDF2-SHA512** — 100.000 iteraciones usando la Web Crypto API nativa del navegador
 - **Sin backend** — no existe servidor, no se envía ningún dato a ningún lado
 - **Sin almacenamiento** — nada se guarda en cookies, localStorage ni disco
