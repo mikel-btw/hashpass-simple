@@ -4,17 +4,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HashPass — Contraseñas sin memoria</title>
+    <title>HashPass — Generador de contraseñas determinístico sin almacenamiento</title>
+    <meta name="description" content="HashPass genera contraseñas reproducibles a partir de una frase maestra y el nombre del sitio usando PBKDF2-SHA512. Todo ocurre en tu navegador. Sin servidores, sin bases de datos.">
+    <link rel="canonical" href="https://hashpass-simple.vercel.app/">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://hashpass-simple.vercel.app/">
+    <meta property="og:title" content="HashPass — Generador de contraseñas determinístico">
+    <meta property="og:description" content="Genera contraseñas reproducibles con PBKDF2-SHA512 directamente en tu navegador. Sin servidores ni bases de datos.">
+    <meta property="og:locale" content="es_ES">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="HashPass — Generador de contraseñas determinístico">
+    <meta name="twitter:description" content="Genera contraseñas reproducibles con PBKDF2-SHA512 directamente en tu navegador. Sin servidores ni bases de datos.">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Syne:wght@400;600;700;800&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
 </head>
 
 <body>
-
-    <!-- NAV -->
     <nav>
         <div class="nav-inner">
             <span class="mono nav-logo">HP<span class="accent-dot">.</span></span>
@@ -49,8 +59,7 @@
 
         <div class="hero-content">
             <p class="mono eyebrow">Generador determinístico</p>
-            <h1 class="serif">Contraseñas</h1>
-            <h1 class="serif italic accent">sin memoria</h1>
+            <h1 class="serif">Contraseñas <span class="serif italic accent">sin memoria</span></h1>
             <p class="hero-sub">
                 La misma frase maestra más el nombre del sitio siempre produce la misma contraseña. Sin bases de datos.
                 Sin servidores.
